@@ -13,6 +13,7 @@ public class User {
     private String email;
     private UserProviderType providerType;
     private String password;
+    private String googleId;
     private LocalDateTime createdAt;
     private String token;
     private String refreshToken;
@@ -71,6 +72,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getGoogleId() {
+        return googleId;
+    }
+
+    public void setGoogleId(String googleId) {
+        this.googleId = googleId;
     }
 
     public LocalDateTime getCreatedAt() {
