@@ -1,13 +1,13 @@
 package jonah_rosner.auth_system.User;
 import jakarta.persistence.Entity;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
-import org.springframework.cglib.core.Local;
 
 @Entity
 public class User {
     // Define schema
-    private Long id;
+    private UUID id;
     private String username;
     private String email;
     private String password;
@@ -20,10 +20,10 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String username, String email, String password,
+    public User(String username, String email, String password,
                 String token, String refreshToken, LocalDateTime tokenExpiration,
                 LocalDateTime refreshTokenExpiration) {
-        this.id = id;
+        this.id = UUID.randomUUID();
         this.username = username;
         this.email = email;
         this.password = password;
@@ -34,12 +34,8 @@ public class User {
         this.refreshTokenExpiration = refreshTokenExpiration;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getUsername() {
