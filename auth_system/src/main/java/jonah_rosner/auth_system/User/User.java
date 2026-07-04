@@ -2,6 +2,7 @@ package jonah_rosner.auth_system.User;
 import jakarta.persistence.Entity;
 import java.time.LocalDateTime;
 import java.util.UUID;
+import jonah_rosner.auth_system.Enums.UserProviderType;
 
 
 @Entity
@@ -10,6 +11,7 @@ public class User {
     private UUID id;
     private String username;
     private String email;
+    private UserProviderType providerType;
     private String password;
     private LocalDateTime createdAt;
     private String token;
@@ -26,6 +28,7 @@ public class User {
         this.id = UUID.randomUUID();
         this.username = username;
         this.email = email;
+        this.providerType = UserProviderType.LOCAL;
         this.password = password;
         this.createdAt = LocalDateTime.now();
         this.token = token;
@@ -52,6 +55,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public UserProviderType getProviderType() {
+        return this.providerType;
+    }
+
+    public void setProviderType(UserProviderType providerType) {
+        this.providerType = providerType;
     }
 
     public String getPassword() {
