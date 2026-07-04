@@ -2,6 +2,8 @@ package jonah_rosner.auth_system.User;
 import jakarta.persistence.Entity;
 import java.time.LocalDateTime;
 
+import org.springframework.cglib.core.Local;
+
 @Entity
 public class User {
     // Define schema
@@ -18,14 +20,14 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String username, String email, String password, LocalDateTime createdAt,
+    public User(Long id, String username, String email, String password,
                 String token, String refreshToken, LocalDateTime tokenExpiration,
                 LocalDateTime refreshTokenExpiration) {
         this.id = id;
         this.username = username;
         this.email = email;
         this.password = password;
-        this.createdAt = createdAt;
+        this.createdAt = LocalDateTime.now();
         this.token = token;
         this.refreshToken = refreshToken;
         this.tokenExpiration = tokenExpiration;
