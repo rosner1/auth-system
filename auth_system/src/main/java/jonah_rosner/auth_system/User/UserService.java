@@ -7,10 +7,6 @@ import org.springframework.stereotype.Service;
 public class UserService {
     private final UserRepository userRepository;
 
-    public UserService() {
-        this.userRepository = null;
-    }
-
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
@@ -26,9 +22,6 @@ public class UserService {
         if (user.getCreatedAt() == null) {
             user.setCreatedAt(LocalDateTime.now());
         }
-        if (this.userRepository != null) {
-            return this.userRepository.save(user);
-        }
-        return user;
+        return this.userRepository.save(user);
     }
 }
