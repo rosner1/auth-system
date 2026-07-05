@@ -1,14 +1,20 @@
 package jonah_rosner.auth_system.User;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.UUID;
 import jonah_rosner.auth_system.Enums.UserProviderType;
 
 
 @Entity
+@Table(name = "users")
 public class User {
-    // Define schema
+    @Id
+    @Column(name = "id", nullable = false, updatable = false)
     private UUID id;
+
     private String username;
     private String email;
     private UserProviderType providerType;
@@ -40,6 +46,10 @@ public class User {
 
     public UUID getId() {
         return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public String getUsername() {

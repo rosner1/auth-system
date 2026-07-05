@@ -1,8 +1,9 @@
 package jonah_rosner.auth_system.User;
 
+import java.util.UUID;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class UserRepository {
-    // Communicate with database
+public interface UserRepository extends JpaRepository<User, UUID> {
 }
